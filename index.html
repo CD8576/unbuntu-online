@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Ubuntu Online</title>
+    <script src="https://copy.sh/v86/build/v86.min.js"></script>
+</head>
+<body>
+    <h1>Run Ubuntu Online</h1>
+    <div id="emulator" style="width: 800px; height: 600px; border: 1px solid black;"></div>
+    <script>
+        var emulator = new V86Starter({
+            wasm_path: "https://copy.sh/v86/build/v86.wasm",
+            memory_size: 256 * 1024 * 1024, // 256 MB
+            vga_memory_size: 8 * 1024 * 1024, // 8 MB
+            screen_container: document.getElementById("emulator"),
+            bios: {
+                url: "https://copy.sh/v86/bios/seabios.bin"
+            },
+            vga_bios: {
+                url: "https://copy.sh/v86/bios/vgabios.bin"
+            },
+            cdrom: {
+                url: "http://releases.ubuntu.com/20.04/ubuntu-20.04.6-desktop-amd64.iso"
+            }
+        });
+    </script>
+</body>
+</html>
